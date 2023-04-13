@@ -1,10 +1,10 @@
 import { WechatyBuilder } from "wechaty";
 import QRCode from "qrcode";
 import { ChatGPTBot } from "./bot.js";
-import {config} from "./config.js";
+import { config } from "./config.js";
 const chatGPTBot = new ChatGPTBot();
 
-const bot =  WechatyBuilder.build({
+const bot = WechatyBuilder.build({
   name: "wechat-assistant", // generate xxxx.memory-card.json and save login data for the next login
   puppet: "wechaty-puppet-wechat",
   puppetOptions: {
@@ -34,6 +34,21 @@ async function main() {
       }
       if (message.text().startsWith("/ping")) {
         await message.say("pong");
+        return;
+      }
+
+      if (msgText.startsWith("/投喂")) {
+        await message.say("谢谢你喂了我，我现在饱饱的。😋");
+        return;
+      }
+
+      if (msgText.startsWith("/铲屎")) {
+        await message.say("感谢你打扫了我的房间，现在很干净了。😊");
+        return;
+      }
+
+      if (msgText.startsWith("/训练")) {
+        await message.say("经过你的训练，我变得更聪明了。🧠");
         return;
       }
       try {
