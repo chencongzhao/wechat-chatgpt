@@ -36,21 +36,7 @@ async function main() {
         await message.say("pong");
         return;
       }
-
-      if (msgText.startsWith("/投喂")) {
-        await message.say("谢谢你喂了我，我现在饱饱的。😋");
-        return;
-      }
-
-      if (msgText.startsWith("/铲屎")) {
-        await message.say("感谢你打扫了我的房间，现在很干净了。😊");
-        return;
-      }
-
-      if (msgText.startsWith("/训练")) {
-        await message.say("经过你的训练，我变得更聪明了。🧠");
-        return;
-      }
+、
       try {
         await chatGPTBot.onMessage(message);
       } catch (e) {
