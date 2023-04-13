@@ -51,13 +51,3 @@ async function main() {
   }
 }
 main();
-
-  try {
-    await bot.start();
-  } catch (e) {
-    console.error(
-      `⚠️ Bot start failed, can you log in through wechat on the web?: ${e}`
-    );
-  }
-}
-main();
