@@ -1,10 +1,10 @@
 import { WechatyBuilder } from "wechaty";
 import QRCode from "qrcode";
 import { ChatGPTBot } from "./bot.js";
-import { config } from "./config.js";
+import {config} from "./config.js";
 const chatGPTBot = new ChatGPTBot();
 
-const bot = WechatyBuilder.build({
+const bot =  WechatyBuilder.build({
   name: "wechat-assistant", // generate xxxx.memory-card.json and save login data for the next login
   puppet: "wechaty-puppet-wechat",
   puppetOptions: {
@@ -36,13 +36,22 @@ async function main() {
         await message.say("pong");
         return;
       }
-、
       try {
         await chatGPTBot.onMessage(message);
       } catch (e) {
         console.error(e);
       }
     });
+  try {
+    await bot.start();
+  } catch (e) {
+    console.error(
+      `⚠️ Bot start failed, can you log in through wechat on the web?: ${e}`
+    );
+  }
+}
+main();
+
   try {
     await bot.start();
   } catch (e) {
